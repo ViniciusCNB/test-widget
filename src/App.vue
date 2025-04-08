@@ -13,7 +13,7 @@
       <div class="iframe-container">
         <iframe 
           id="widget-iframe"
-          src="" 
+          :src="`http://localhost:3000/widget?token=${token}`" 
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -22,9 +22,9 @@
       
       <div class="controls">
         <input 
-          v-model="iframeUrl" 
+          v-model="token" 
           type="text" 
-          placeholder="URL do seu widget (ex: http://localhost:3000)" 
+          placeholder="Token" 
           class="url-input"
           @keyup.enter="updateIframe"
         />
@@ -38,7 +38,7 @@
 export default {
   data() {
     return {
-      iframeUrl: ''
+      token: '',
     }
   },
   methods: {
