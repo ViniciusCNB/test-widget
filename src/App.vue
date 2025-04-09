@@ -13,7 +13,7 @@
       <div class="iframe-container">
         <iframe 
           id="widget-iframe"
-          :src="`http://localhost:3000/widget?token=${token}`" 
+          src="" 
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -26,7 +26,6 @@
           type="text" 
           placeholder="Token" 
           class="url-input"
-          @keyup.enter="updateIframe"
         />
         <button @click="updateIframe" class="load-btn">Carregar</button>
       </div>
@@ -43,8 +42,8 @@ export default {
   },
   methods: {
     updateIframe() {
-      if (this.iframeUrl) {
-        document.getElementById('widget-iframe').src = this.iframeUrl;
+      if (this.token) {
+        document.getElementById('widget-iframe').src = `http://localhost:3000/widget?token=${this.token}`;
       }
     }
   }
